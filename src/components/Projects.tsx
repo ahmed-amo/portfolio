@@ -308,8 +308,16 @@ function DesktopMockup({ image, color }: { image: string; color: string }) {
 
 function DeviceCluster({ images, color }: { images: ProjectImages; color: string }) {
   return (
-    <div className="absolute inset-y-0 right-0 w-[44%] min-[400px]:w-[48%] sm:w-[52%] md:w-[55%] flex flex-col justify-center items-center px-1.5 sm:px-4 md:px-6 pointer-events-none select-none">
-      <div className="device-cluster-parallax w-full max-h-[82vh] max-w-[min(100%,22rem)] sm:max-h-[84vh] sm:max-w-[min(100%,25rem)] md:max-h-[86vh] md:max-w-[min(100%,28rem)] lg:max-h-none lg:max-w-[min(100%,32rem)] xl:max-w-[min(100%,36rem)] flex flex-col items-center gap-4 sm:gap-5 md:gap-6 lg:gap-7 mx-auto">
+    <div
+      className="
+        pointer-events-none relative z-0 flex w-full flex-1 min-h-0 select-none
+        flex-col items-center justify-center
+        px-2 pb-5 pt-1 sm:px-4 sm:pb-7
+        lg:absolute lg:inset-y-0 lg:right-0 lg:left-auto lg:z-0
+        lg:w-[55%] lg:flex-none lg:justify-center lg:px-6
+      "
+    >
+      <div className="device-cluster-parallax mx-auto flex w-full max-w-[min(100%,18rem)] max-h-[min(40vh,26rem)] flex-col items-center gap-3 min-[400px]:max-w-[min(100%,19rem)] min-[400px]:max-h-[min(42vh,27rem)] sm:max-w-[min(100%,22rem)] sm:max-h-[min(44vh,28rem)] sm:gap-4 md:max-w-[min(100%,24rem)] md:max-h-[min(46vh,30rem)] md:gap-5 lg:max-h-none lg:max-w-[min(100%,32rem)] lg:gap-7 xl:max-w-[min(100%,36rem)]">
         <div className="flex items-end justify-center gap-2 sm:gap-4 md:gap-5 w-full min-w-0">
           <div className="laptop-wrapper min-w-0 flex-1 basis-0 max-w-[min(100%,18rem)] sm:max-w-[min(100%,20rem)] md:max-w-[min(100%,22rem)] lg:max-w-[min(100%,24rem)] xl:max-w-[min(100%,26rem)]">
             <LaptopMockup image={images.laptop} color={color} />
@@ -512,27 +520,32 @@ export default function Projects() {
       {projects.map((project, index) => (
         <div
           key={project.id}
-          className="project-slide relative h-screen w-full overflow-hidden"
+          className="project-slide relative flex h-screen min-h-0 w-full flex-col overflow-hidden lg:block"
         >
           {/* Dark base */}
           <div className="absolute inset-0 bg-[#030305]" />
 
           {/* Ambient glow */}
           <div
-            className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[56%] h-[76%] rounded-full blur-[140px] opacity-40 pointer-events-none"
+            className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[56%] h-[76%] rounded-full blur-[140px] opacity-40 pointer-events-none max-lg:opacity-25"
             style={{ background: project.color }}
           />
 
-          <DeviceCluster images={project.images} color={project.color} />
+          {/* Left-side gradient — desktop split only (mobile stacks; no text/mockup overlap) */}
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[#030305] from-[42%] via-[#030305]/60 via-[55%] to-transparent lg:block" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#030305]/90 via-transparent to-[#030305]/50 lg:from-[#030305]/80 lg:to-[#030305]/40" />
 
-          {/* Left-side gradient so text stays readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030305] from-[28%] via-[#030305]/75 via-[52%] to-transparent sm:from-[34%] sm:via-[55%] md:from-[42%] md:via-[55%] pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/90 via-transparent to-[#030305]/50 md:from-[#030305]/80 md:to-[#030305]/40 pointer-events-none" />
-
-          {/* ── Text content ── */}
-          <div className="project-content relative z-10 h-full flex items-center">
-            <div className="w-full max-w-7xl mr-auto ml-0 pl-4 pr-3 min-[400px]:pl-5 min-[400px]:pr-4 sm:pl-8 sm:pr-10 lg:pl-28 xl:pl-32 2xl:pl-36 lg:pr-16">
-              <div className="w-full min-w-0 max-w-[52%] min-[400px]:max-w-[min(100%,21rem)] sm:max-w-[50%] md:max-w-[45%]">
+          {/* ── Text content (above mockups on small screens) ── */}
+          <div
+            className="
+              project-content relative z-10 w-full shrink-0
+              overflow-y-auto overscroll-contain px-4 pb-3 pt-7 min-[400px]:px-5 sm:px-8 sm:pb-4 sm:pt-8
+              max-lg:max-h-[min(52vh,100%)]
+              lg:absolute lg:inset-0 lg:flex lg:h-full lg:max-h-none lg:items-center lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0
+            "
+          >
+            <div className="mx-auto mr-auto ml-0 w-full max-w-7xl lg:pl-28 lg:pr-16 xl:pl-32 2xl:pl-36">
+              <div className="w-full min-w-0 max-w-none lg:max-w-[45%]">
 
                 {/* Badge row */}
                 <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5 min-w-0">
@@ -654,6 +667,8 @@ export default function Projects() {
               </div>
             </div>
           </div>
+
+          <DeviceCluster images={project.images} color={project.color} />
 
           {/* Ghost number */}
           <div className="absolute bottom-0 right-[2%] pointer-events-none overflow-hidden leading-none">
