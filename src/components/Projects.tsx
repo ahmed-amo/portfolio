@@ -109,9 +109,9 @@ const projects: Project[] = [
       "4-role RBAC — Nurse, Receptionist, Auditor, Admin each with scoped dashboards",
     ],
     images: {
-      laptop: "/images/projects/ayadati/laptop.png",
-      phone: "/images/projects/ayadati/phone.png",
-      desktop: "/images/projects/ayadati/desktop.png",
+      laptop: "/images/projects/Ayadati/laptop.png",
+      phone: "/images/projects/Ayadati/phone.png",
+      desktop: "/images/projects/Ayadati/desktop.png",
     },
     tags: ["Laravel", "React", "Next.js", "TypeScript", "PostgreSQL", "Python / ML", "REST API", "Tailwind"],
     demoUrl: "#",
