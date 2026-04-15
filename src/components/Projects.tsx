@@ -308,7 +308,7 @@ function DesktopMockup({ image, color }: { image: string; color: string }) {
 
 function DeviceCluster({ images, color }: { images: ProjectImages; color: string }) {
   return (
-    <div className="absolute inset-y-0 right-0 w-[56%] min-[480px]:w-[54%] md:w-[55%] flex flex-col justify-center items-center px-2 sm:px-4 md:px-6 pointer-events-none select-none">
+    <div className="absolute inset-y-0 right-0 w-[44%] min-[400px]:w-[48%] sm:w-[52%] md:w-[55%] flex flex-col justify-center items-center px-1.5 sm:px-4 md:px-6 pointer-events-none select-none">
       <div className="device-cluster-parallax w-full max-h-[82vh] max-w-[min(100%,22rem)] sm:max-h-[84vh] sm:max-w-[min(100%,25rem)] md:max-h-[86vh] md:max-w-[min(100%,28rem)] lg:max-h-none lg:max-w-[min(100%,32rem)] xl:max-w-[min(100%,36rem)] flex flex-col items-center gap-4 sm:gap-5 md:gap-6 lg:gap-7 mx-auto">
         <div className="flex items-end justify-center gap-2 sm:gap-4 md:gap-5 w-full min-w-0">
           <div className="laptop-wrapper min-w-0 flex-1 basis-0 max-w-[min(100%,18rem)] sm:max-w-[min(100%,20rem)] md:max-w-[min(100%,22rem)] lg:max-w-[min(100%,24rem)] xl:max-w-[min(100%,26rem)]">
@@ -526,39 +526,39 @@ export default function Projects() {
           <DeviceCluster images={project.images} color={project.color} />
 
           {/* Left-side gradient so text stays readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030305] from-[42%] via-[#030305]/60 via-[55%] to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/80 via-transparent to-[#030305]/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030305] from-[28%] via-[#030305]/75 via-[52%] to-transparent sm:from-[34%] sm:via-[55%] md:from-[42%] md:via-[55%] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/90 via-transparent to-[#030305]/50 md:from-[#030305]/80 md:to-[#030305]/40 pointer-events-none" />
 
           {/* ── Text content ── */}
           <div className="project-content relative z-10 h-full flex items-center">
-            <div className="w-full max-w-7xl mr-auto ml-0 pl-6 pr-8 sm:pl-8 sm:pr-10 lg:pl-28 xl:pl-32 2xl:pl-36 lg:pr-16">
-              <div className="w-full max-w-[45%]">
+            <div className="w-full max-w-7xl mr-auto ml-0 pl-4 pr-3 min-[400px]:pl-5 min-[400px]:pr-4 sm:pl-8 sm:pr-10 lg:pl-28 xl:pl-32 2xl:pl-36 lg:pr-16">
+              <div className="w-full min-w-0 max-w-[52%] min-[400px]:max-w-[min(100%,21rem)] sm:max-w-[50%] md:max-w-[45%]">
 
                 {/* Badge row */}
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5 min-w-0">
                   <div
-                    className="flex items-center justify-center w-11 h-11 rounded-xl border-2 shrink-0"
+                    className="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl border-2 shrink-0"
                     style={{
                       borderColor: `${project.color}50`,
                       background: `${project.color}12`,
                     }}
                   >
-                    <span className="text-lg font-black" style={{ color: project.color }}>
+                    <span className="text-base sm:text-lg font-black" style={{ color: project.color }}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-none mb-1">
+                  <div className="min-w-0">
+                    <p className="text-[9px] sm:text-[10px] text-zinc-500 uppercase tracking-widest leading-tight mb-0.5 sm:mb-1">
                       Featured Project · {project.year}
                     </p>
-                    <p className="text-xs text-zinc-400 font-medium">{project.tagline}</p>
+                    <p className="text-[11px] sm:text-xs text-zinc-400 font-medium leading-snug">{project.tagline}</p>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-3 leading-[1.05]">
+                <h3 className="text-2xl min-[400px]:text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-2 sm:mb-3 leading-[1.08] sm:leading-[1.05]">
                   {project.title.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block mr-3">
+                    <span key={i} className="inline-block mr-1.5 sm:mr-3 last:mr-0">
                       {i === 0
                         ? <span style={{ color: project.color }}>{word}</span>
                         : word}
@@ -566,30 +566,30 @@ export default function Projects() {
                   ))}
                 </h3>
 
-                {/* Description */}
-                <p className="text-sm xl:text-base text-zinc-400 mb-5 leading-relaxed">
+                {/* Description — desktop / tablet only; keeps mobile scannable */}
+                <p className="hidden md:block text-sm xl:text-base text-zinc-400 mb-5 leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* ── Highlights — the hireability engine ── */}
-                <ul className="mb-6 flex flex-col gap-2">
+                <ul className="mb-4 sm:mb-6 flex flex-col gap-1.5 sm:gap-2">
                   {project.highlights.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
+                    <li key={i} className="flex items-start gap-2 sm:gap-2.5">
                       <span
-                        className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full"
+                        className="mt-[4px] sm:mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full"
                         style={{ background: project.color }}
                       />
-                      <span className="text-sm text-zinc-300 leading-snug">{point}</span>
+                      <span className="text-xs sm:text-sm text-zinc-300 leading-snug">{point}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-8">
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="project-tag px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-900/80 text-zinc-300 border border-zinc-700/70 backdrop-blur-sm hover:border-zinc-500 transition-colors cursor-default"
+                      className="project-tag px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium bg-zinc-900/80 text-zinc-300 border border-zinc-700/70 backdrop-blur-sm hover:border-zinc-500 transition-colors cursor-default"
                     >
                       {tag}
                     </span>
@@ -597,7 +597,7 @@ export default function Projects() {
                 </div>
 
                 {/* ── CTA row — Live + GitHub ── */}
-                <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
 
                   {/* Live demo button */}
                   {project.demoUrl && (
@@ -605,10 +605,10 @@ export default function Projects() {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-3"
+                      className="group inline-flex items-center gap-2 sm:gap-3"
                     >
                       <span
-                        className="px-6 py-3 rounded-full font-semibold text-sm text-white transition-all duration-300 hover:scale-105 hover:brightness-110 inline-flex items-center gap-2"
+                        className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm text-white transition-all duration-300 hover:scale-105 hover:brightness-110 inline-flex items-center gap-1.5 sm:gap-2"
                         style={{
                           background: `linear-gradient(135deg, ${project.color}, ${project.color}aa)`,
                           boxShadow: `0 6px 28px ${project.color}45`,
@@ -628,7 +628,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium border transition-all duration-300 hover:scale-105"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 hover:scale-105"
                       style={{
                         borderColor: `${project.color}40`,
                         color: "rgb(161 161 170)",
