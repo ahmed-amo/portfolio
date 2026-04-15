@@ -1,4 +1,4 @@
-# 🚀 Azzeddine Hani Benchalel - Portfolio
+# 🚀 Ahmed Amokrane - Portfolio
 
 A modern, futuristic portfolio website built with Next.js, featuring smooth GSAP animations, a sleek dark theme, and a responsive design.
 
@@ -42,7 +42,7 @@ A modern, futuristic portfolio website built with Next.js, featuring smooth GSAP
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/DCHani/portfolio.git
+   git clone https://github.com/ahmed-amo/portfolio.git
    cd portfolio
    ```
 
@@ -110,7 +110,7 @@ temp-portfolio/
 │   ├── images/
 │   │   ├── profile.jpg          # Your profile picture
 │   │   └── projects/            # Project screenshots
-│   └── Azzeddine Hani Benchalel.pdf  # Your resume
+│   └── Ahmed_amokrane_cv.pdf  # Your resume
 ├── src/
 │   ├── app/
 │   │   ├── globals.css          # Global styles
@@ -170,9 +170,9 @@ Contributions, issues, and feature requests are welcome!
 
 **Azzeddine Hani Benchalel**
 
-- GitHub: [@DCHani](https://github.com/DCHani)
-- LinkedIn: [Azzeddine Hani Benchalel](https://www.linkedin.com/in/azzeddine-hani-benchalel-2a2a45317/)
-- Email: azzeddinehanibenchalel@gmail.com
+- GitHub: [@ahmed-amo](https://github.com/ahmed-amo)
+- LinkedIn: [Amokrane Ahmed]((https://www.linkedin.com/in/ahmed-amokrane-95122334b/))
+- Email: amokrane.ahmed10@gmail.com
 
 ## ⭐ Show Your Support
 
