@@ -346,6 +346,8 @@ export default function Projects() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+
+      // ── Section visibility ────────────────────────────────────────────────
       ScrollTrigger.create({
         trigger: section,
         start: "top 80%",
@@ -359,90 +361,77 @@ export default function Projects() {
       const cards = gsap.utils.toArray<HTMLElement>(".project-slide");
 
       cards.forEach((card, i) => {
+        const isLast = i === cards.length - 1;
+
+        // ── Pin trigger ─────────────────────────────────────────────────────
+        if (!isLast) {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            anticipatePin: 1,         // smooths re-entry on scroll-back
+            onEnter: () => setActiveIndex(i),
+            onEnterBack: () => setActiveIndex(i),
+          });
+        } else {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top top",
+            onEnter: () => setActiveIndex(i),
+            onEnterBack: () => setActiveIndex(i),
+          });
+        }
+
+        // ── Grab animatable elements ────────────────────────────────────────
+        const content = card.querySelector(".project-content");
+        const tags    = card.querySelectorAll(".project-tag");
+        const laptop  = card.querySelector(".laptop-wrapper");
+        const phone   = card.querySelector(".phone-wrapper");
+        const desktop = card.querySelector(".desktop-wrapper");
+
+        // Set initial hidden states up-front (no per-scroll overhead)
+        gsap.set(content,  { opacity: 0, y: 50 });
+        gsap.set(laptop,   { opacity: 0, y: -70, x: -30, rotateX: 12, scale: 0.9 });
+        gsap.set(phone,    { opacity: 0, y: -90, x: 30,  rotateY: -10, scale: 0.82 });
+        gsap.set(desktop,  { opacity: 0, y: 90,  scale: 0.88 });
+        gsap.set(tags,     { opacity: 0, y: 16,  scale: 0.85 });
+
+        // ── Enter animation — fires once, never reverses ────────────────────
+        // `once: true` is the key fix: eliminates all reverse-animation lag
+        // when scrolling back up through pinned cards.
         ScrollTrigger.create({
           trigger: card,
-          start: "top top",
-          end: i === cards.length - 1 ? "bottom bottom" : "bottom top",
-          pin: i !== cards.length - 1,
-          pinSpacing: false,
-          onEnter: () => setActiveIndex(i),
-          onEnterBack: () => setActiveIndex(i),
+          start: "top 80%",
+          once: true,
+          onEnter: () => {
+            const tl = gsap.timeline();
+
+            tl.to(content, {
+              opacity: 1, y: 0,
+              duration: 0.9, ease: "power3.out",
+            }, 0)
+            .to(laptop, {
+              opacity: 1, y: 0, x: 0, rotateX: 0, scale: 1,
+              duration: 1.1, ease: "power3.out",
+            }, 0)
+            .to(phone, {
+              opacity: 1, y: 0, x: 0, rotateY: 0, scale: 1,
+              duration: 1.15, delay: 0.1, ease: "power3.out",
+            }, 0)
+            .to(desktop, {
+              opacity: 1, y: 0, scale: 1,
+              duration: 1.2, delay: 0.05, ease: "power3.out",
+            }, 0)
+            .to(tags, {
+              opacity: 1, y: 0, scale: 1,
+              stagger: 0.045, duration: 0.4, ease: "back.out(1.7)",
+            }, 0.15);
+          },
         });
 
-        const content = card.querySelector(".project-content");
-        if (content) {
-          gsap.fromTo(content,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1, y: 0, duration: 1, ease: "power3.out",
-              scrollTrigger: {
-                trigger: card, start: "top 80%", end: "top 30%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-
-        const tags = card.querySelectorAll(".project-tag");
-        if (tags.length) {
-          gsap.fromTo(tags,
-            { opacity: 0, y: 16, scale: 0.85 },
-            {
-              opacity: 1, y: 0, scale: 1, stagger: 0.05, duration: 0.45,
-              ease: "back.out(1.7)",
-              scrollTrigger: {
-                trigger: card, start: "top 65%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-
-        const laptop = card.querySelector(".laptop-wrapper");
-        if (laptop) {
-          gsap.fromTo(laptop,
-            { opacity: 0, y: -70, x: -30, rotateX: 12, scale: 0.9 },
-            {
-              opacity: 1, y: 0, x: 0, rotateX: 0, scale: 1,
-              duration: 1.2, ease: "power3.out",
-              scrollTrigger: {
-                trigger: card, start: "top 78%", end: "top 25%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-
-        const phone = card.querySelector(".phone-wrapper");
-        if (phone) {
-          gsap.fromTo(phone,
-            { opacity: 0, y: -90, x: 30, rotateY: -10, scale: 0.82 },
-            {
-              opacity: 1, y: 0, x: 0, rotateY: 0, scale: 1,
-              duration: 1.25, delay: 0.12, ease: "power3.out",
-              scrollTrigger: {
-                trigger: card, start: "top 78%", end: "top 25%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-
-        const desktop = card.querySelector(".desktop-wrapper");
-        if (desktop) {
-          gsap.fromTo(desktop,
-            { opacity: 0, y: 90, scale: 0.88 },
-            {
-              opacity: 1, y: 0, scale: 1,
-              duration: 1.35, delay: 0.06, ease: "power3.out",
-              scrollTrigger: {
-                trigger: card, start: "top 78%", end: "top 25%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-
+        // ── Parallax scrub (smooth, no reverse jank) ────────────────────────
         const clusterMotion = card.querySelector(".device-cluster-parallax");
         if (clusterMotion) {
           gsap.to(clusterMotion, {
@@ -452,11 +441,12 @@ export default function Projects() {
               trigger: card,
               start: "top top",
               end: "bottom top",
-              scrub: 1.6,
+              scrub: 2,
             },
           });
         }
       });
+
     }, section);
 
     return () => ctx.revert();
@@ -531,11 +521,11 @@ export default function Projects() {
             style={{ background: project.color }}
           />
 
-          {/* Left-side gradient — desktop split only (mobile stacks; no text/mockup overlap) */}
+          {/* Left-side gradient */}
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[#030305] from-[42%] via-[#030305]/60 via-[55%] to-transparent lg:block" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#030305]/90 via-transparent to-[#030305]/50 lg:from-[#030305]/80 lg:to-[#030305]/40" />
 
-          {/* ── Text content (above mockups on small screens) ── */}
+          {/* ── Text content ── */}
           <div
             className="
               project-content relative z-10 w-full shrink-0
@@ -579,12 +569,12 @@ export default function Projects() {
                   ))}
                 </h3>
 
-                {/* Description — desktop / tablet only; keeps mobile scannable */}
+                {/* Description */}
                 <p className="hidden md:block text-sm xl:text-base text-zinc-400 mb-5 leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* ── Highlights — the hireability engine ── */}
+                {/* Highlights */}
                 <ul className="mb-4 sm:mb-6 flex flex-col gap-1.5 sm:gap-2">
                   {project.highlights.map((point, i) => (
                     <li key={i} className="flex items-start gap-2 sm:gap-2.5">
@@ -609,10 +599,9 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* ── CTA row — Live + GitHub ── */}
+                {/* CTA row */}
                 <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
 
-                  {/* Live demo button */}
                   {project.demoUrl && (
                     <a
                       href={project.demoUrl}
@@ -635,7 +624,6 @@ export default function Projects() {
                     </a>
                   )}
 
-                  {/* GitHub button */}
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
