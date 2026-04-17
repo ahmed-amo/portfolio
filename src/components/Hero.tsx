@@ -284,7 +284,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="/AMOKRANE_AHMED_CV1.pdf"
+                  href="/AHMED_AMOKRANE_SOFTWARE_ENGINEER.pdf"
                   download
                   className="group relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-semibold text-zinc-900 shadow-lg shadow-black/25 ring-1 ring-white/80 transition-all duration-200 hover:bg-zinc-100 hover:shadow-xl hover:shadow-black/30"
                 >
@@ -312,7 +312,7 @@ export default function Hero() {
 
             {/* Right Visual - Enhanced Orbit System */}
             <div className="hero-visual relative flex items-center justify-center lg:justify-end">
-              <div className="hero-float relative w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[480px] lg:h-[480px] xl:w-[520px] xl:h-[520px]">
+              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[520px] lg:h-[520px] xl:w-[580px] xl:h-[580px] lg:-translate-x-10 xl:-translate-x-14">
                 
                 {/* Pulsing glow behind */}
                 <div className="pulse-glow absolute inset-[-20%] rounded-full bg-gradient-to-br from-violet-600/20 via-transparent to-cyan-600/20 blur-3xl" />
@@ -358,6 +358,18 @@ export default function Hero() {
                   <div className="orbit-item absolute bottom-[15%] left-[15%]">
                     <div className="orbit-item-inner px-3 py-1.5 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full">
                       <span className="text-xs font-medium text-zinc-400">React</span>
+                    </div>
+                  </div>
+
+                  <div className="orbit-item absolute top-[22%] left-[6%] -translate-x-1/2 -translate-y-1/2">
+                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
+                      <span className="text-sm font-medium text-zinc-300">DevOps</span>
+                    </div>
+                  </div>
+
+                  <div className="orbit-item absolute bottom-[22%] right-[6%] translate-x-1/2 translate-y-1/2">
+                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
+                      <span className="text-sm font-medium text-zinc-300">AWS</span>
                     </div>
                   </div>
                 </div>
