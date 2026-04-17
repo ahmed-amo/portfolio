@@ -312,7 +312,7 @@ export default function Hero() {
 
             {/* Right Visual - Enhanced Orbit System */}
             <div className="hero-visual relative flex items-center justify-center lg:justify-center">
-              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[640px] lg:h-[640px] xl:w-[720px] xl:h-[720px] lg:-translate-x-24 xl:-translate-x-32">
+              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[680px] lg:h-[680px] xl:w-[800px] xl:h-[800px] lg:-translate-x-24 xl:-translate-x-32">
                 
                 {/* Pulsing glow behind */}
                 <div className="pulse-glow absolute inset-[-20%] rounded-full bg-gradient-to-br from-violet-600/20 via-transparent to-cyan-600/20 blur-3xl" />
@@ -321,7 +321,7 @@ export default function Hero() {
                 <div className="orbit-ring absolute inset-0">
                   {/* Orbit path */}
                   <div className="absolute inset-0 rounded-full border border-zinc-800/50" />
-                  <div className="absolute inset-0 rounded-full border border-dashed border-violet-500/20" style={{ transform: "scale(1.15)" }} />
+                  <div className="absolute inset-0 rounded-full border border-dashed border-violet-500/20 scale-[1.15] lg:scale-[1.28] xl:scale-[1.32]" />
                   
                   {/* Orbiting items */}
                   <div className="orbit-item absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -375,7 +375,7 @@ export default function Hero() {
                 </div>
 
                 {/* Center container */}
-                <div className="absolute inset-[15%] rounded-full bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 shadow-2xl shadow-black/50 overflow-hidden">
+                <div className="absolute inset-[15%] lg:inset-[23%] xl:inset-[24.625%] rounded-full bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 shadow-2xl shadow-black/50 overflow-hidden">
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
                   
@@ -384,14 +384,14 @@ export default function Hero() {
                   
                   {/* Profile image */}
                   <div className="absolute inset-4 rounded-full overflow-hidden border-2 border-zinc-600/50 bg-zinc-900">
-  <img
-    src="/profile.png"
-    alt="Amokrane Ahmed"
-    className="w-full h-full object-cover scale-110"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
-</div>
-</div>
+                    <img
+                      src="/profile.png"
+                      alt="Amokrane Ahmed"
+                      className="w-full h-full object-contain scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
+                  </div>
+                </div>
                 {/* Accent dots */}
                 <div className="absolute top-[10%] left-[10%] w-2 h-2 rounded-full bg-violet-500/60 animate-pulse" />
                 <div className="absolute bottom-[10%] right-[10%] w-1.5 h-1.5 rounded-full bg-cyan-500/60 animate-pulse" style={{ animationDelay: "1s" }} />
