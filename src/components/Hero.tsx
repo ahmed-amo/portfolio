@@ -311,8 +311,8 @@ export default function Hero() {
             </div>
 
             {/* Right Visual - Enhanced Orbit System */}
-            <div className="hero-visual relative flex items-center justify-center lg:justify-end">
-              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[520px] lg:h-[520px] xl:w-[580px] xl:h-[580px] lg:-translate-x-10 xl:-translate-x-14">
+            <div className="hero-visual relative flex items-center justify-center lg:justify-center">
+              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[640px] lg:h-[640px] xl:w-[720px] xl:h-[720px] lg:-translate-x-24 xl:-translate-x-32">
                 
                 {/* Pulsing glow behind */}
                 <div className="pulse-glow absolute inset-[-20%] rounded-full bg-gradient-to-br from-violet-600/20 via-transparent to-cyan-600/20 blur-3xl" />
@@ -387,7 +387,7 @@ export default function Hero() {
   <img
     src="/profile.png"
     alt="Amokrane Ahmed"
-    className="w-full h-full object-contain scale-105"
+    className="w-full h-full object-cover scale-110"
   />
   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent" />
 </div>
