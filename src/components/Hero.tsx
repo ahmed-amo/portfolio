@@ -312,7 +312,7 @@ export default function Hero() {
 
             {/* Right Visual - Enhanced Orbit System */}
             <div className="hero-visual relative flex items-center justify-center lg:justify-center">
-              <div className="hero-float relative w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[680px] lg:h-[680px] xl:w-[800px] xl:h-[800px] lg:-translate-x-24 xl:-translate-x-32">
+              <div className="hero-float relative w-[340px] h-[340px] xs:w-[420px] xs:h-[420px] sm:w-[520px] sm:h-[520px] lg:w-[760px] lg:h-[760px] xl:w-[900px] xl:h-[900px] lg:-translate-x-20 xl:-translate-x-28">
                 
                 {/* Pulsing glow behind */}
                 <div className="pulse-glow absolute inset-[-20%] rounded-full bg-gradient-to-br from-violet-600/20 via-transparent to-cyan-600/20 blur-3xl" />
@@ -375,7 +375,7 @@ export default function Hero() {
                 </div>
 
                 {/* Center container */}
-                <div className="absolute inset-[15%] lg:inset-[23%] xl:inset-[24.625%] rounded-full bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 shadow-2xl shadow-black/50 overflow-hidden">
+                <div className="absolute inset-[12%] lg:inset-[20%] xl:inset-[22%] rounded-full bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 shadow-2xl shadow-black/50 overflow-hidden">
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
                   
@@ -383,7 +383,7 @@ export default function Hero() {
                   <div className="absolute inset-[2px] rounded-full border border-violet-500/20" />
                   
                   {/* Profile image */}
-                  <div className="absolute inset-4 rounded-full overflow-hidden border-2 border-zinc-600/50 bg-zinc-900">
+                  <div className="absolute inset-3 sm:inset-4 rounded-full overflow-hidden border-2 border-zinc-600/50 bg-zinc-900">
                     <img
                       src="/profile.png"
                       alt="Amokrane Ahmed"
