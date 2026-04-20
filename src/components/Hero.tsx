@@ -226,7 +226,7 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 w-full min-h-screen flex items-center">
-        <div className="w-full max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20 py-20">
+        <div className="w-full max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-20 py-14 sm:py-20">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
             
             {/* Left Content */}
@@ -311,8 +311,8 @@ export default function Hero() {
             </div>
 
             {/* Right Visual - Enhanced Orbit System */}
-            <div className="hero-visual relative flex items-center justify-center lg:justify-center">
-              <div className="hero-float relative w-[340px] h-[340px] xs:w-[420px] xs:h-[420px] sm:w-[520px] sm:h-[520px] lg:w-[760px] lg:h-[760px] xl:w-[900px] xl:h-[900px] lg:-translate-x-20 xl:-translate-x-28">
+            <div className="hero-visual relative flex items-center justify-center lg:justify-center mt-10 sm:mt-14 lg:mt-0 order-first lg:order-none">
+              <div className="hero-float relative w-[280px] h-[280px] xs:w-[340px] xs:h-[340px] sm:w-[520px] sm:h-[520px] lg:w-[760px] lg:h-[760px] xl:w-[900px] xl:h-[900px] lg:-translate-x-20 xl:-translate-x-28 max-w-full">
                 
                 {/* Pulsing glow behind */}
                 <div className="pulse-glow absolute inset-[-20%] rounded-full bg-gradient-to-br from-violet-600/20 via-transparent to-cyan-600/20 blur-3xl" />
@@ -325,51 +325,51 @@ export default function Hero() {
                   
                   {/* Orbiting items */}
                   <div className="orbit-item absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
-                      <span className="text-sm font-medium text-zinc-300">PotsgresSQL/RestAPIs</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">PotsgresSQL/RestAPIs</span>
                     </div>
                   </div>
                   
                   <div className="orbit-item absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
-                      <span className="text-sm font-medium text-zinc-300">Python AI/ML</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">Python AI/ML</span>
                     </div>
                   </div>
                   
                   <div className="orbit-item absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
-                      <span className="text-sm font-medium text-zinc-300">Next.js</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">Next.js</span>
                     </div>
                   </div>
                   
                   <div className="orbit-item absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
-                      <span className="text-sm font-medium text-zinc-300">PHP Laravel</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">PHP Laravel</span>
                     </div>
                   </div>
 
                   {/* Diagonal items */}
                   <div className="orbit-item absolute top-[15%] right-[15%]">
-                    <div className="orbit-item-inner px-3 py-1.5 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full">
-                      <span className="text-xs font-medium text-zinc-400">TypeScript</span>
+                    <div className="orbit-item-inner px-2 py-1 sm:px-3 sm:py-1.5 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full">
+                      <span className="text-[10px] sm:text-xs font-medium text-zinc-400">TypeScript</span>
                     </div>
                   </div>
                   
                   <div className="orbit-item absolute bottom-[15%] left-[15%]">
-                    <div className="orbit-item-inner px-3 py-1.5 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full">
-                      <span className="text-xs font-medium text-zinc-400">React</span>
+                    <div className="orbit-item-inner px-2 py-1 sm:px-3 sm:py-1.5 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full">
+                      <span className="text-[10px] sm:text-xs font-medium text-zinc-400">React</span>
                     </div>
                   </div>
 
                   <div className="orbit-item absolute top-[22%] left-[6%] -translate-x-1/2 -translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
-                      <span className="text-sm font-medium text-zinc-300">DevOps</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-violet-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">DevOps</span>
                     </div>
                   </div>
 
                   <div className="orbit-item absolute bottom-[22%] right-[6%] translate-x-1/2 translate-y-1/2">
-                    <div className="orbit-item-inner px-4 py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
-                      <span className="text-sm font-medium text-zinc-300">AWS</span>
+                    <div className="orbit-item-inner px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-full shadow-lg shadow-cyan-500/10">
+                      <span className="text-[11px] sm:text-sm font-medium text-zinc-300">AWS</span>
                     </div>
                   </div>
                 </div>
